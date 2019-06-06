@@ -17,9 +17,9 @@ public class Personne implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	public Long id;
-	public String nom, prenom;
-	public LocalDate dateNaiss;
+	private Long id;
+	private String nom, prenom;
+	private LocalDate dateNaiss;
 	
 	
 	public Personne() {

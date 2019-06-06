@@ -3,31 +3,34 @@ package jenkinsProject.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jenkinsProject.dao.IpersonneDao;
+import com.emard.webSoap.dao.IpersonneDao;
+
 import jenkinsProject.entity.Personne;
 
 @Service
 public class PersonneService implements IPersonneService{
 
-	public final IpersonneDao personneDao;
+	@Autowired
+	public IpersonneDao ipersonneDao;
 	
-	public PersonneService(IpersonneDao iPersonneDao) {
+	/*public PersonneService(IpersonneDao iPersonneDao) {
 		personneDao = iPersonneDao;
-	}
+	}*/
 	
 	public Personne addPersonne(Personne personne) {
-		return personneDao.save(personne);
+		return ipersonneDao.save(personne);
 		 
 	}
 
 	public Personne modifyPersonne(Personne personne) {
-		return personneDao.save(personne);
+		return ipersonneDao.save(personne);
 	}
 
 	public Iterable<Personne> listPersonnes() {
-		return personneDao.findAll();
+		return ipersonneDao.findAll();
 	}
 
 	public List<Personne> searchByName(String name) {
@@ -38,7 +41,7 @@ public class PersonneService implements IPersonneService{
 
 	public void deletePersonne(Long id) {
 		// TODO Auto-generated method stub
-		personneDao.delete(id);
+		ipersonneDao.delete(id);
 	}
 
 }
